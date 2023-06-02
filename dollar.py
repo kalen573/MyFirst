@@ -1,8 +1,6 @@
 class Dollar:
-    def __init__(self, somethings):
-        amount.serlf = 10
+    def __init__(self, amount):
+        self.amount = amount
 
     def times(self, multiplier):
-        
-
-        pass
+        self.amount *= multiplier
