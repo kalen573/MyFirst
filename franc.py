@@ -13,4 +13,4 @@ class Franc:
     def __eq__(self, money):
         franc = money 
         return self.__amount == franc.amount
-#　第5章
+#　
