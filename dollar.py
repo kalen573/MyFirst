@@ -1,11 +1,16 @@
 class Dollar:
+
+    @property
+    def amount(self):
+        return self.__amount
+
     def __init__(self, amount):
-        self.amount = amount
+        self.__amount = amount
 
     def times(self, multiplier: int):
         #return self.amount * multiplier
-        return Dollar(self.amount * multiplier)
+        return Dollar(self.__amount * multiplier)
     
     def __eq__(self, money):
         #dollar = money 
-        return self.amount == money.amount
+        return self.__amount == money.amount
