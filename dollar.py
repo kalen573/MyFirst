@@ -13,6 +13,6 @@ class Dollar(Money):
     def times(self, multiplier: int):
         return Dollar(self.amount * multiplier)
     
-    def __eq__(self, object):
-        money = object
-        return self.__amount == money.amount
+    # def __eq__(self, object):
+    #     money = object
+    #     return self.__amount == money.amount

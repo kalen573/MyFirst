@@ -13,6 +13,6 @@ class Franc(Money):
         #return self.amount * multiplier
         return Franc(self.amount * multiplier)
     
-    def __eq__(self, object):
-        money = object
-        return self.__amount == money.amount
+    # def __eq__(self, object):
+    #     money = object
+    #     return self.__amount == money.amount

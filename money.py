@@ -6,7 +6,7 @@ class Money:
     def __init__(self, amount):
         self.__amount = amount
 
-    # def __eq__(self, object):
-    #     money = object
-    #     return self.__amount == money.amount
+    def __eq__(self, object):
+        money = object
+        return self.__amount == money.amount
    
