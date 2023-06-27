@@ -1,5 +1,6 @@
 from dollar import Dollar
 from franc import Franc
+from money import Money
 
 class TestMoney:
     def test_DollarMultiplication(self):
@@ -12,6 +13,7 @@ class TestMoney:
         assert not Dollar(5) == Dollar(6)
         assert Franc(5) == Franc(5)
         assert not Franc(5) == Franc(6)
+        # assert not Franc(5) == Dollar(5)
 
     def test_FrancMultiplication(self):
         five = Franc(5)

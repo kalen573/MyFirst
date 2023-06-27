@@ -2,8 +2,16 @@ from money import Money
 
 class Dollar(Money):
 
+    @property
+    def amount(self):
+        return self.__amount
+
     def __init__(self, amount):
         self.__amount = amount
 
     def times(self, multiplier: int):
-        return Dollar(self.__amount * multiplier)
+        return Dollar(self.amount * multiplier)
+    
+    def __eq__(self, object):
+        money = object
+        return self.__amount == money.amount
