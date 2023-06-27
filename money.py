@@ -19,7 +19,7 @@ class Money:
     
     @abstractmethod
     def times(self, multiplier):
-        pass
+        return self.g_currency
 
     @classmethod
     def dollar(cls, amount):
