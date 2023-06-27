@@ -1,3 +1,5 @@
+from abc import ABC, abstractmethod
+
 class Money:
     @property
     def amount(self):
@@ -9,6 +11,10 @@ class Money:
     def __eq__(self, object):
         money = object
         return (self.__amount == money.amount and self.__class__.__name__ == object.__class__.__name__)
+    
+    @abstractmethod
+    def times(self, multiplier):
+        pass
     
     @classmethod
     def dollar(cls, amount):
