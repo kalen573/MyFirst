@@ -36,7 +36,7 @@ class Dollar(Money):
         self.__amount = amount
 
     def times(self, multiplier: int):
-        return Money.dollar(self.amount * multiplier)
+        return Dollar(self.amount * multiplier, "USD")
     
 class Franc(Money):
     def __init__(self, amount, currency):
@@ -44,5 +44,5 @@ class Franc(Money):
         self.__amount = amount
 
     def times(self, multiplier: int):
-        return Money.franc(self.amount * multiplier)
-    # timesの戻り値をMoneyの暮らすメソッドにして第9章完了
+        return Franc(self.amount * multiplier, "CHF")
+    
