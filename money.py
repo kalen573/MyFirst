@@ -5,8 +5,13 @@ class Money:
     def amount(self):
         return self.__amount
     
-    def __init__(self, amount):
+    #@property
+    def currency(self):
+        return self.g_currency
+    
+    def __init__(self, amount, currency):
         self.__amount = amount
+        self.g_currency = currency
 
     def __eq__(self, object):
         money = object
@@ -15,29 +20,28 @@ class Money:
     @abstractmethod
     def times(self, multiplier):
         pass
-    
+
     @classmethod
     def dollar(cls, amount):
-        return Dollar(amount)
+        return Dollar(amount, "USD")
     
     @classmethod
     def franc(cls, amount):
-        return Franc(amount)
+        return Franc(amount, "CHF")
 
    
 class Dollar(Money):
-    def __init__(self, amount):
-        super(Dollar, self).__init__(amount)
+    def __init__(self, amount, currency):
+        super().__init__(amount, currency)
         self.__amount = amount
 
     def times(self, multiplier: int):
-        return Dollar(self.amount * multiplier)
+        return Money.dollar(self.amount * multiplier)
     
 class Franc(Money):
-    def __init__(self, amount):
-        super(Franc, self).__init__(amount)
+    def __init__(self, amount, currency):
+        super().__init__(amount, currency)
         self.__amount = amount
 
     def times(self, multiplier: int):
-        #return self.amount * multiplier
-        return Franc(self.amount * multiplier)
+        return Money.franc(self.amount * multiplier)
