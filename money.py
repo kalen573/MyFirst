@@ -45,3 +45,4 @@ class Franc(Money):
 
     def times(self, multiplier: int):
         return Money.franc(self.amount * multiplier)
+    # timesの戻り値をMoneyの暮らすメソッドにして第9章完了
