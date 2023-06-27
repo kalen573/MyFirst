@@ -15,11 +15,11 @@ class Money:
 
     def __eq__(self, object):
         money = object
-        return (self.__amount == money.amount and self.__class__.__name__ == object.__class__.__name__)
+        return (self.__amount == money.amount and self.currency() == object.currency())
     
-    @abstractmethod
+    #@abstractmethod
     def times(self, multiplier):
-        return self.g_currency
+        return Money(self.amount * multiplier, self.g_currency)
 
     @classmethod
     def dollar(cls, amount):
@@ -34,13 +34,13 @@ class Dollar(Money):
     def __init__(self, amount, currency):
         super().__init__(amount, currency)
 
-    def times(self, multiplier: int):
-        return Dollar(self.amount * multiplier, self.g_currency)
+    # def times(self, multiplier: int):
+    #     return Dollar(self.amount * multiplier, self.g_currency)
     
 class Franc(Money):
     def __init__(self, amount, currency):
         super().__init__(amount, currency)
 
-    def times(self, multiplier: int):
-        return Franc(self.amount * multiplier, self.g_currency)
+    # def times(self, multiplier: int):
+    #     return Franc(self.amount * multiplier, self.g_currency)
     
