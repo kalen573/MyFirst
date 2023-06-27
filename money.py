@@ -33,16 +33,14 @@ class Money:
 class Dollar(Money):
     def __init__(self, amount, currency):
         super().__init__(amount, currency)
-        self.__amount = amount
 
     def times(self, multiplier: int):
-        return Dollar(self.amount * multiplier, "USD")
+        return Dollar(self.amount * multiplier, self.g_currency)
     
 class Franc(Money):
     def __init__(self, amount, currency):
         super().__init__(amount, currency)
-        self.__amount = amount
 
     def times(self, multiplier: int):
-        return Franc(self.amount * multiplier, "CHF")
+        return Franc(self.amount * multiplier, self.g_currency)
     
