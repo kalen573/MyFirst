@@ -1,4 +1,6 @@
-class Dollar:
+from money import Money
+
+class Dollar(Money):
 
     @property
     def amount(self):
