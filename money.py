@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 class Expression(ABC):
     pass
 
-class Money:
+class Money(Expression):
     def __init__(self, amount, currency):
         self.__amount = amount
         self.__currency = currency
@@ -14,7 +14,7 @@ class Money:
         return Money(self.amount * multiplier, self.__currency)
     
     def __add__(self, addend):
-        return Money(self.__amount + addend.__amount, self.__currency)
+        return Sum(self, addend)
             
     @property
     def amount(self):
@@ -38,7 +38,7 @@ class Bank:
     
 # --------------------
 
-class Sum:
+class Sum(Expression):
     def __init__(self, augend, addend):
         self.__augend = augend
         self.__addend = addend
