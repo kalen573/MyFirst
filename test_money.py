@@ -1,5 +1,5 @@
-from dollar import Dollar
-from franc import Franc
+from money import Dollar
+from money import Franc
 from money import Money
 
 class TestMoney:
@@ -21,5 +21,9 @@ class TestMoney:
         assert Money.franc(15) == five.times(3)
 
     def test_Currency(self):
-        assert "USD" == Money.dollar(1).currency()
-        assert "CHF" == Money.franc(1).currency()
+        assert "USD" == Money.dollar(1).currency
+        assert "CHF" == Money.franc(1).currency
+
+    def test_DifferentClassEquality(self):
+        assert Money(10, "CHF") == Franc(10, "CHF")
+        
