@@ -21,11 +21,11 @@ class Money:
 
     @classmethod
     def dollar(cls, amount):
-        return Dollar(amount, "USD")
+        return Money(amount, "USD")
     
     @classmethod
     def franc(cls, amount):
-        return Franc(amount, "CHF")
+        return Money(amount, "CHF")
 
    
 class Dollar(Money):
