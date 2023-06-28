@@ -42,3 +42,10 @@ class Sum:
     def __init__(self, augend, addend):
         self.__augend = augend
         self.__addend = addend
+
+    @property
+    def augend(self):
+        return self.__augend
+    @property
+    def addend(self):
+        return self.__addend
