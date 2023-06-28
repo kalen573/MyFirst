@@ -9,9 +9,8 @@ class Money:
         return (self.__amount == object.amount and self.currency == object.currency)
     
     def times(self, multiplier):
-        # return Money(self.amount * multiplier, self.__currency)
-        pass
-    
+        return Money(self.amount * multiplier, self.__currency)
+            
     @property
     def amount(self):
         return self.__amount
@@ -32,12 +31,7 @@ class Money:
 class Dollar(Money):
     def __init__(self, amount, currency):
         super().__init__(amount, currency)
-    def times(self, multiplier):
-        return Money(self.amount * multiplier, self.currency)
     
 class Franc(Money):
     def __init__(self, amount, currency):
         super().__init__(amount, currency)
-    def times(self, multiplier):
-        return Money(self.amount * multiplier, self.currency)
-    
