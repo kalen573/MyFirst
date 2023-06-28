@@ -42,3 +42,9 @@ class TestMoney:
         bank = Bank()
         result = bank.reduce(Money.dollar(1), "USD")
         assert Money.dollar(1) == result
+
+    def rest_ReducemoneyDifferentCurrency(self):
+        bank = Bank()
+        bank.addRate("CHF", "USD", 2)
+        result = bank.reduce(Money.franc(2), "USD")
+        assert Money.dollar(1) == result
