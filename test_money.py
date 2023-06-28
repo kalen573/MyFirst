@@ -1,5 +1,6 @@
 
 from money import Money
+from money import Bank
 
 class TestMoney:
     def test_DollarMultiplication(self):

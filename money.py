@@ -34,4 +34,5 @@ class Money:
         return Money(amount, "CHF")
 # --------------------
 class Bank:
-    pass
+    def reduce(self, source: Exception, to: str):
+        return Money.dollar(10)
