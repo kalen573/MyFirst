@@ -18,4 +18,4 @@ class TestMoney:
 
     def test_SimpleAddition(self):
         sum = Money.dollar(5) + Money.dollar(5)
-        assert Money.dollar(10) == sum
+        assert Money.dollar(10) == reduce
