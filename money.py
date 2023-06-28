@@ -34,7 +34,9 @@ class Money(Expression):
 # --------------------
 class Bank:
     def reduce(self, source: Exception, to: str):
-        return Money.dollar(10)
+        sum = source
+        #amount = sum.augend.amount + sum.addend.amount
+        return sum.reduce(to)
     
 # --------------------
 
@@ -42,6 +44,10 @@ class Sum(Expression):
     def __init__(self, augend, addend):
         self.__augend = augend
         self.__addend = addend
+
+    def reduce(self, to):
+        amount = self.__augend.amount + self.__addend.amount
+        return Money(amount, to)
 
     @property
     def augend(self):
