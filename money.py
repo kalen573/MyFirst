@@ -36,3 +36,9 @@ class Bank:
     def reduce(self, source: Exception, to: str):
         return Money.dollar(10)
     
+# --------------------
+
+class Sum:
+    def __init__(self, augend, addend):
+        self.__augend = augend
+        self.__addend = addend
