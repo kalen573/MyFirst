@@ -1,6 +1,8 @@
 from abc import ABC, abstractmethod
 class Expression(ABC):
-    pass
+    @abstractmethod
+    def reduce(self, to):
+        pass
 
 class Money(Expression):
     def __init__(self, amount, currency):
@@ -9,6 +11,7 @@ class Money(Expression):
 
     def __eq__(self, object):
         return (self.__amount == object.amount and self.currency == object.currency)
+        # return self.__dict__ == object.__dict__
     
     def times(self, multiplier):
         return Money(self.amount * multiplier, self.__currency)
@@ -19,6 +22,9 @@ class Money(Expression):
     @property
     def amount(self):
         return self.__amount
+    
+    def reduce(self, to: str):
+        return
     
     @property
     def currency(self):
@@ -34,9 +40,11 @@ class Money(Expression):
 # --------------------
 class Bank:
     def reduce(self, source: Exception, to: str):
-        sum = source
+        # if type(source) is Money:
+        #     return (Money.source).reduce(to)
+        # sum = source
         #amount = sum.augend.amount + sum.addend.amount
-        return sum.reduce(to)
+        return source.reduce(to)
     
 # --------------------
 
