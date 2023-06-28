@@ -1,4 +1,7 @@
-#from abc import ABC, abstractmethod
+from abc import ABC, abstractmethod
+
+class Expression(ABC):
+    pass
 
 class Money:
     def __init__(self, amount, currency):
@@ -29,3 +32,6 @@ class Money:
     @classmethod
     def franc(cls, amount):
         return Money(amount, "CHF")
+# --------------------
+class Bank:
+    pass
