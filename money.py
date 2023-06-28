@@ -10,6 +10,9 @@ class Money:
     
     def times(self, multiplier):
         return Money(self.amount * multiplier, self.__currency)
+    
+    def __add__(self, addend):
+        return Money(self.__amount + addend.__amount, self.__currency)
             
     @property
     def amount(self):
