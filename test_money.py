@@ -1,6 +1,7 @@
 
 from money import Money
 from money import Bank
+from money import Sum
 
 class TestMoney:
     def test_DollarMultiplication(self):
@@ -30,3 +31,9 @@ class TestMoney:
         sum = result
         assert five == sum.augend
         assert five == sum.addend
+
+    def test_ReduceSum(self):
+        sum = Sum(Money.dollar(3), Money.dollar(4))
+        bank = Bank()
+        result = bank.reduce(sum, "USD")
+        assert Money.dollar(7) == result
