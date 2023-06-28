@@ -1,5 +1,4 @@
 from abc import ABC, abstractmethod
-
 class Expression(ABC):
     pass
 
@@ -36,3 +35,4 @@ class Money:
 class Bank:
     def reduce(self, source: Exception, to: str):
         return Money.dollar(10)
+    

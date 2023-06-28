@@ -23,3 +23,4 @@ class TestMoney:
         bank = Bank()
         reduce = bank.reduce(sum, "USD")
         assert Money.dollar(10) == reduce
+        
