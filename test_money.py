@@ -6,8 +6,8 @@ from money import Sum
 class TestMoney:
     def test_DollarMultiplication(self):
         five = Money.dollar(5)
-        assert Money.dollar(10) == five.times(2)
-        assert Money.dollar(15) == five.times(3)
+        assert Money.dollar(10) == five * 2
+        assert Money.dollar(15) == five * 3
 
     def test_equality(self):
         assert Money.dollar(5) == Money.dollar(5)

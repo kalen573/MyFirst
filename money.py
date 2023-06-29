@@ -6,6 +6,9 @@ class Expression(ABC):
     @abstractmethod
     def __add__(self, addend: Exception):
         pass
+    @abstractmethod
+    def __mul__(self, multiplier: int):
+        pass
 
 
 class Money(Expression):
@@ -17,7 +20,7 @@ class Money(Expression):
         # return (self.amount == object.amount and self.currency == object.currency)
         return self.__dict__ == object.__dict__
     
-    def times(self, multiplier) -> Exception:
+    def __mul__(self, multiplier) -> Exception:
         return Money(self.amount * multiplier, self.__currency)
     
     def __add__(self, addend: Exception):
@@ -75,6 +78,9 @@ class Sum(Expression):
     
     def __add__(self, addend: Exception):
         return Sum(self, addend)
+    
+    def __mul__(self, multiplier: int):
+        return Sum(self.__augend * multiplier, self.__addend * multiplier)
 
     @property
     def augend(self):
