@@ -39,15 +39,21 @@ class Money(Expression):
     def franc(cls, amount):
         return Money(amount, "CHF")
 # --------------------
+from typing import Dict
 class Bank:
+    def __init__(self):
+        self.rates = Dict[Pair, int] = {}
+
     def reduce(self, source: Exception, to: str):
         return source.reduce(self, to)
     
     def addRate(self, fromcurrency: str, to: str, rate: int):
+        self.rates.put (Pair(fromcurrency, to), rate)
         pass
 
     def rate(self, fromcurrency: str, to: str):
-        return (2 if fromcurrency == "CHF" and to == "USD" else 1)
+        return self.rates.get(Pair(fromcurrency, to))
+        # return (2 if fromcurrency == "CHF" and to == "USD" else 1)
     
 # --------------------
 
