@@ -1,5 +1,6 @@
 class WasRun:
-    pass
+    def __init__(seslf, name):
+        pass
 
 
 test = WasRun("testMethod")
