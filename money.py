@@ -17,7 +17,6 @@ class Money(Expression):
         self.__currency = currency
 
     def __eq__(self, object):
-        # return (self.amount == object.amount and self.currency == object.currency)
         return self.__dict__ == object.__dict__
     
     def __mul__(self, multiplier) -> Exception:
@@ -63,7 +62,6 @@ class Bank:
         if fromcurrency == to:
             return 1
         return self.rates.get(curr_rate)
-        #return (2 if fromcurrency == "CHF" and to == "USD" else 1)
     
 # --------------------
 
@@ -102,6 +100,3 @@ class Pair:
     
     def __hash__(self):
         return hash(0)
-    
-    # def hashCode(self):
-    #     return 0
