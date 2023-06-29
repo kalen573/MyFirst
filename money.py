@@ -48,7 +48,6 @@ class Bank:
 
     def rate(self, fromcurrency: str, to: str):
         return (2 if fromcurrency == "CHF" and to == "USD" else 1)
-
     
 # --------------------
 
@@ -67,3 +66,17 @@ class Sum(Expression):
     @property
     def addend(self):
         return self.__addend
+    
+# ---------------------
+
+class Pair:
+    def __init__(self, fromcurrency: str, to: str):
+        self.fromcurrency = fromcurrency
+        self.to = to
+
+    def __eq__(self, something):
+        pair = something
+        return self.__dict__ == pair.__dict__
+    
+    def hashCode(self):
+        return 0
