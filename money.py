@@ -3,6 +3,10 @@ class Expression(ABC):
     @abstractmethod
     def reduce(self, bank, to: str):
         pass
+    @abstractmethod
+    def __add__(self, addend: Exception):
+        pass
+
 
 class Money(Expression):
     def __init__(self, amount, currency):
@@ -13,7 +17,7 @@ class Money(Expression):
         # return (self.amount == object.amount and self.currency == object.currency)
         return self.__dict__ == object.__dict__
     
-    def times(self, multiplier):
+    def times(self, multiplier) -> Exception:
         return Money(self.amount * multiplier, self.__currency)
     
     def __add__(self, addend: Exception):
@@ -68,6 +72,9 @@ class Sum(Expression):
     def reduce(self, bank, to):
         amount = self.__augend.reduce(bank, to).amount + self.__addend.reduce(bank, to).amount
         return Money(amount, to)
+    
+    def __add__(self, addend: Exception):
+        pass
 
     @property
     def augend(self):
