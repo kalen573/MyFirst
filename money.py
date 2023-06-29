@@ -74,7 +74,7 @@ class Sum(Expression):
         return Money(amount, to)
     
     def __add__(self, addend: Exception):
-        pass
+        return Sum(self, addend)
 
     @property
     def augend(self):
