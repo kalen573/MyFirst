@@ -39,8 +39,7 @@ class Money(Expression):
     def franc(cls, amount):
         return Money(amount, "CHF")
 # --------------------
-# from typing import Dict
-# from money import Pair
+
 class Bank:
     def __init__(self):
         self.rates = {}
@@ -67,7 +66,7 @@ class Sum(Expression):
         self.__addend = addend
 
     def reduce(self, bank, to):
-        amount = self.__augend.amount + self.__addend.amount
+        amount = self.__augend.reduce(bank, to).amount + self.__addend.reduce(bank, to).amount
         return Money(amount, to)
 
     @property

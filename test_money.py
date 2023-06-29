@@ -2,7 +2,6 @@
 from money import Money
 from money import Bank
 from money import Sum
-#from money import Pair
 
 class TestMoney:
     def test_DollarMultiplication(self):
@@ -52,3 +51,11 @@ class TestMoney:
 
     def test_IdentityRate(self):
         assert 1 == Bank().rate("USD", "USD")
+
+    def test_MixedAddition(self):
+        fiveBucks = Money.dollar(5)
+        tenFrancs = Money.franc(10)
+        bank = Bank()
+        bank.addRate("CHF", "USD", 2)
+        result = bank.reduce(fiveBucks + tenFrancs, "USD")
+        assert Money.dollar(10) == result
