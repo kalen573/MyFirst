@@ -1,3 +1,7 @@
+class OriginalError(Exception):
+    def __str__(self):
+        return "例外が発生しています"
+
 class TestCase:
     def __init__(self, name: str):
         self.name = name
@@ -22,6 +26,8 @@ class WasRun(TestCase):
         self.log = "setUp "    
     def testMethod(self):
         self.log = self.log + "testMethod "
+    def testBrokenMethod(self):
+        raise OriginalError()
     def tearDown(self):
         self.log = self.log + "tearDown"
 
