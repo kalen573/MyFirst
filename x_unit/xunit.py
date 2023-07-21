@@ -48,6 +48,12 @@ class TestResult:
         self.errorCount += 1
     def summary(self):
         return "{0} run, {1} failed".format(self.runCount, self.errorCount)
+    
+class TestSuite:
+    def __init__(self):
+        self.tests = []
+    def add(self, test):
+        self.tests.append(test)
 
 class TestCaseTest(TestCase):
     def testTemplateMethod(self):
