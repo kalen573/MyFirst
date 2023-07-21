@@ -1,3 +1,5 @@
+import traceback
+
 class OriginalError(Exception):
     def __str__(self):
         return "例外が発生しています"
@@ -16,8 +18,13 @@ class TestCase:
         result = TestResult()
         result.testStarted()
         self.setUp()
-        method = getattr(self, self.name)
-        method()
+        try:
+            method = getattr(self, self.name)
+            method()
+        except OriginalError as e:
+            print(e)
+            result.testFailed()
+            traceback.print_exc()
         self.tearDown()
         return result
 
