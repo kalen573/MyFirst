@@ -30,7 +30,7 @@ class ChoFrame(tk.Frame):
             self.rowconfigure(i, weight=1)
 
         # 背景画像の表示
-        img_rs = tk.PhotoImage(file="./img/背景_rs.png")
+        img_rs = tk.PhotoImage(file="./img/bg_rs.png")
 
         label_r0 = tk.Label(self, image=img_rs, bg="#ffebcd")
         label_r0.image = img_rs  # ガベージコレクションの防止

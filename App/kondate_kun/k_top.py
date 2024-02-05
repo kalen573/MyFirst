@@ -31,7 +31,7 @@ class TopFrame(tk.Frame):
         self.columnconfigure(0, weight=1)
 
         # 背景画像の表示
-        img = tk.PhotoImage(file="./img/背景_r.png")
+        img = tk.PhotoImage(file="./img/bg_r.png")
 
         # 各行にLabelを作成し、画像を設定
         for n in range(5):
